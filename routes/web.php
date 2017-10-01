@@ -47,4 +47,7 @@ Route::post('idea/{id}/post-team', 'IdeasController@post_to_team');
 Route::get('/list-team', 'TeamsController@index');
 Route::get('/team/{id}', 'TeamsController@details');
 Route::get('/team/{id}/edit', 'TeamsController@edit_team');
-Route::post('team/{id}/edit', 'TeamsController@edit_team_post');
+Route::post('team/{id}/post-edit', 'TeamsController@edit_team_post');
+
+///////////////////////// JOIN /////////////////////////////////////
+Route::get('join/{id}', 'JoinController@join');

@@ -87,7 +87,7 @@
 
 <div class="container">
   <div class="col-md-12" style="padding: 0; margin-bottom: 20px;">
-    <div class="col-md-7" style="padding: 30px 0;">
+    <div class="col-md-6" style="padding: 30px 0;">
       <h4 style="font-size: 36px; font-family: 'hind-bold';">Gabung dan Temukan Rekan Untuk Wujudkan Ide mu</h4><br>
       <p style="line-height: 20px!important;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
       <br>
@@ -96,7 +96,7 @@
         <li><button class="btn btn-success">How It Works ?</button></li>
       </ul>
     </div>
-    <div class="col-md-5" style="padding: 0;">
+    <div class="col-md-6" style="padding: 0;">
       <img src="{{asset('img/demo/cover.png')}}" width="100%" />
     </div>
   </div>

@@ -36,7 +36,11 @@ linear-gradient(to bottom, rgba(255,255,255,0.8) 0%,rgba(255,255,255,0.9) 100%),
     <ul class="nav navbar-nav navbar-right">
       <li><a href="#"><button class="btn btn-info">Watch</button></a></li>
       <li><a href="#"><button class="btn btn-success">Message</button></a></li>
-      <li><a href="#"><button class="btn btn-default"><img src="{{asset('img/icon/setting.svg')}}" width="20" /></button></a></li>
+      @if ($team->user_id == Auth::user()->id)
+      <li><a href="{{$team->id. '/edit'}}"><button class="btn btn-default"><img src="{{asset('img/icon/setting.svg')}}" width="20" /></button></a></li>
+      @else
+      
+      @endif
     </ul>
   </div>
 </nav>

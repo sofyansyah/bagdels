@@ -13,6 +13,16 @@
 		</form>
 		@else
 
+			@if(count($join) > 0)
+				@if($join->status == 2)
+				<a href="" class="btn btn-warning" style="float: right; border:none; border-radius: 20px; padding: 5px 20px;">Pending</a>
+				@elseif($join->status == 1)
+					<a href="#" class="btn btn-info" style="float: right; border:none; border-radius: 20px; padding: 5px 20px;">Joined</a>
+				@endif
+			@else
+			<a href="{{url('join/'.$idea->id)}}" class="btn btn-primary" style="float: right; border:none; border-radius: 20px; padding: 5px 20px;">Join</a>
+			@endif
+
 		@endif
 		</div>
 		<div class="col-md-12" style="padding: 0;">

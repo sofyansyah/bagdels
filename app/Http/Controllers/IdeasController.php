@@ -9,12 +9,13 @@ use App\CommentIdeas;
 use Image;
 use App\Follow;
 use App\Team;
+use App\JoinMember;
 use Auth;
 
 class IdeasController extends Controller
 {
-	public function detail(){
-
+	public function detail()
+	{
 		return view ('ideas.details');
 	}
 
@@ -72,8 +73,9 @@ class IdeasController extends Controller
 		->get();
 
 
+		$join = JoinMember::where('id_idea',$idea->id)->where('id_user',Auth::user()->id)->first();
 
-		return view('ideas.details', compact('idea','comment'));
+		return view('ideas.details', compact('idea','comment','join'));
 
 
 	}
