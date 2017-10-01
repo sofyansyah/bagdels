@@ -50,35 +50,48 @@
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
   }
+  .jumbotron{
+    background-image: 
+    linear-gradient(to bottom, rgba(255,255,255,0.8) 0%,rgba(255,255,255,0.9) 100%), url('/img/demo/idea3.png'); background-repeat: no-repeat;min-height: 300px;
+  }
 </style>
 @section('content')
 
+
 <div class="container" style="margin-top: 8%; max-width: 900px;">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <div class="col-md-12 text-center">
-            @if($user->photo == null)
-            <img src="{{asset('img/icon/user.svg')}}" class="img-circle" width="100"/>
-            @else
-            <img src="{{'/img/avatar/'. $user->photo}}" class="img-circle" width="100"/>
-            @endif
-            <br>
-            <!-- <a href="{{'/'. $user->name. '/profile-edit'}}" class="btn btn-warning">Edit Profile</a> -->
-            <h4 style="font-size: 20px; padding:5px;">{{$user->name}}</h4>
-            <h4 style="font-size: 14px; padding:5px; color:#f60;">{{$user->job}}</h4>
-            <p style="padding: 1px 10%; color: #aaa;">"{{$user->bio}}"</p>
-            <ul class="sosmed">
-              <li>Facebook</li>
-              <li>Instagram</li>
-              <li>Twitter</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+  <div class="jumbotron">
+   <div class="col-md-12 text-center">
+    @if($user->photo == null)
+    <img src="{{asset('img/icon/user.svg')}}" class="img-circle" width="100"/>
+    @else
+    <img src="{{'/img/avatar/'. $user->photo}}" class="img-circle" width="100"/>
+    @endif
+    <br>
+    <!-- <a href="{{'/'. $user->name. '/profile-edit'}}" class="btn btn-warning">Edit Profile</a> -->
+    <h4 style="font-size: 20px; padding:5px;">{{$user->name}}</h4>
+    <h4 style="font-size: 14px; padding:5px; color:#f60;">{{$user->job}}</h4>
+    <p style="padding: 1px 10%; color: #aaa; margin-bottom: 2px;">"{{$user->bio}}"</p>
+    @if ($user->name == Auth::user()->name)
+    <button type="button" class="btn btn-success">Inbox</button>
+    @else
+    <li>
+      @if(count($follow) > 0)
+      <a href="{{url('unfollow/'.$follow->id)}}" class="btn btn-success"> Followed </a>
+      @else
+      <a href="{{url('follow/'.$user->id)}}" class="btn btn-info"> Follow</a>
+      @endif
+      @endif
+      <ul class="sosmed">
+        <li>Facebook</li>
+        <li>Instagram</li>
+        <li>Twitter</li>
+      </ul>
+
     </div>
 
+  </div>
+
+  <div class="row">
     <div class="col-md-12">
 
       <div class="col-md-4" style="padding: 0; margin: 0px;">
@@ -237,7 +250,6 @@
 </div>
 
 
-</div>
-</div>
+
 
 @endsection

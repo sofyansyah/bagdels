@@ -1,11 +1,30 @@
 @extends('layouts.master')
-
+<style type="text/css">
+	.navbar{
+		margin-bottom: 0px!important;
+	}
+	.navbar-nav li a{
+		font-family: 'hind-regular';
+		color: #aaa;
+	}
+</style>
 @section('content')
 <div class="container">
+	<nav class="navbar a" style="border-bottom: 1px solid #ddd!important;">
+
+		<ul class="nav navbar-nav" style="margin-top: 5px; padding-left: 0;">
+			<li class="active"><a href="#" style="color: #333;">Semua Kategori</a></li>
+			<li><a href="#">Sosial</a></li>
+			<li><a href="#">Budaya</a></li>
+			<li><a href="#">Edukasi</a></li>
+			<li><a href="#">Bisnis</a></li>
+			<li><a href="#">Komunitas</a></li>
+			</ul>
+	</nav>
 	<div class="col-md-12 featured" style="padding: 20px 0">
 		<div class="row text-center">
 			@forelse($ideas as $idea)
-			<div class="col-md-4">
+			<div class="col-md-4" style="margin-bottom: 10px;">
 				<div class="panel-default">
 					<div class="panel-body">
 						<img src="{{asset('img/'. $idea->image_small)}}" width="100%" height="200" style="margin-bottom: 15px;"/>

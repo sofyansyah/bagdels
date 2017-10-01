@@ -9,15 +9,19 @@
     border-bottom: 1px solid #ddd;
 
   }
-
-  .navbar .menu a{
+  .navbar .menu{
     color: #fff;
-    padding: 5px 15px;
+    padding: 0px 20px;
     background-color: #3498db;
     border-radius: 20px;
 
   }
-  .navbar .menu a:hover, .navbar .menu1 a:hover{
+
+  .navbar .menu a{
+    color: #fff;
+    padding:0 5px;
+  }
+  .navbar .menu a:hover, .navbar .menu1 a:hover,  .navbar .create a:hover{
     color: #F2BB05;
     background: none;
   }
@@ -94,18 +98,20 @@
         <ul class="nav navbar-nav navbar-left" style="padding: 7px;">
           <li class="menu1"><a href="{{url('discover')}}">Discover</a></li>
           <li class="menu1"><a href="{{url('#')}}">Challenge</a></li>
-          <li class="menu1"><a href="{{url('#')}}">Team Up</a></li>
-          <li><a href="#" id="searchtoggl"><i class="fa fa-search fa-lg"></i></a></li>
+          <li class="menu1"><a href="{{url('/list-team')}}">Team Up</a></li>
+          <!--  <li><a href="#" id="searchtoggl"><i class="fa fa-search fa-lg"></i></a></li> -->
         </ul>
         @endif
-        <ul class="nav navbar-nav navbar-right" style="padding: 7px;">
-          @if (Auth::guest())
-          <li class="menu"><a href="{{url('/register')}}">Sign Up</a></li>
-          <li class="menu"><a href="{{url('/login')}}">Sign In</a></li>
 
-          @else
-
-          <li class="menu"><a href="{{'/upload'}}"><i class="fa fa-pencil" style="font-size: 14px;" title="Upload"></i> Tulis</a></li>
+        @if (Auth::guest())
+        <ul class="nav navbar-nav navbar-right menu" style="padding: 7px; margin-top: 7px;">
+          <li class=""><a href="{{url('/register')}}">Sign Up</a></li>
+          <li>/</li>
+          <li class=""><a href="{{url('/login')}}">Sign In</a></li>
+        </ul>
+        @else
+        <ul class="nav navbar-nav navbar-right" style="padding: 7px; margin-top: 7px;">
+        <li class="create" style="padding:0 15px; border-radius: 20px; background-color:#3498db; "><a href="{{'/upload'}}" style="color: #fff;"><i class="fa fa-pencil" style="font-size: 14px;" title="Upload"></i> Ide</a></li>
           <li class="" style="margin: 0 5px;"><a href="{{url('profile/' .Auth::user()->name)}}" style="padding: 0">
             @if(Auth::user()->photo == null)
             <img src="{{asset('img/icon/user.svg')}}" width="34" class="img-circle" ></a></li>
@@ -113,36 +119,36 @@
             <img src="{{asset('img/avatar/' .Auth::user()->photo)}}" width="34" class="img-circle" ></a></li>
             @endif
 
-            <li style="background-color: #fff; border: 1px solid #f60!important;">
-              <a href="{{ url('/logout') }}"
-              onclick="event.preventDefault();
-              document.getElementById('logout-form').submit();" style="color: #f60; border-color: #f60;">
-              <!-- <img src="{{asset('img/icon/exit.svg')}}" height="18"> --> Logout
-            </a>
+            <li class="create">
+            <a href="{{ url('/logout') }}"
+            onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();" style="color: #f60; border-color: #f60;">
+            <!-- <img src="{{asset('img/icon/exit.svg')}}" height="18"> --> Logout
+          </a>
 
-            <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-              {{ csrf_field() }}
-            </form>
-          </li>
-        </ul>
-        @endif
-      </div>
+          <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+            {{ csrf_field() }}
+          </form>
+        </li>
+      </ul>
+      @endif
     </div>
-
-  </nav>
-  <div id="searchbar" class="clearfix">
-    <form id="searchform" method="get" action="searchpage.php">
-      <button type="submit" id="searchsubmit" class="fa fa-search fa-4x"></button>
-      <input type="search" name="s" id="s" placeholder="Keywords..." autocomplete="off">
-      
-    </form>
   </div>
 
+</nav>
+<div id="searchbar" class="clearfix">
+  <form id="searchform" method="get" action="searchpage.php">
+    <button type="submit" id="searchsubmit" class="fa fa-search fa-4x"></button>
+    <input type="search" name="s" id="s" placeholder="Keywords..." autocomplete="off">
 
-  @yield('js')
-  <!-- Scripts -->
-  <script src="{{asset('js/app.js')}}"></script>
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  </form>
+</div>
+
+
+@yield('js')
+<!-- Scripts -->
+<script src="{{asset('js/app.js')}}"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <!-- <script>
   var search_bar = $('#searching_for');
   search_bar.on('keypress', function(e){

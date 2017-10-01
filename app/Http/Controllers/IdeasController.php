@@ -8,6 +8,7 @@ use App\User;
 use App\CommentIdeas;
 use Image;
 use App\Follow;
+use App\Team;
 use Auth;
 
 class IdeasController extends Controller
@@ -48,7 +49,7 @@ class IdeasController extends Controller
 
 			$post2 = $r->file('image');
 			$filename = $r->idea.'_'.str_random(4) . '.'.pathinfo($r->file('image')->getClientOriginalName(),PATHINFO_EXTENSION);
-			Image::make($post2)->crop(200, 100)->save (public_path('img/' . $filename));
+			Image::make($post2)->crop(400, 300)->save (public_path('img/' . $filename));
 			$idea->image_small = $filename;
 			$idea->save();
 		}
@@ -60,9 +61,8 @@ class IdeasController extends Controller
 
 		$idea = Ideas::where('ideas.id', $id)
 		->join('users', 'ideas.user_id', '=', 'users.id')
-		->select('ideas.*','users.name as user_name', 'users.photo as user_avatar')
+		->select('ideas.*','users.name as user_name', 'users.photo as user_avatar', 'users.id as user_id')
 		->first();
-
 
 		$comment = CommentIdeas::where('ideas.id',$id)
 		->join('ideas','comment_ideas.ideas_id','=','ideas.id')
@@ -71,23 +71,38 @@ class IdeasController extends Controller
 		->select('comment_ideas.id as comments_id','comment_ideas.user_id as user_comment','comment_ideas.reply','ideas.id as ideas_id', 'comment_ideas.created_at as date', 'users.name', 'users.photo as user_avatar')
 		->get();
 
+
+
 		return view('ideas.details', compact('idea','comment'));
+
+
 	}
 
-	public function follow($name)
+	public function follow($id)
 	{
-		$user = User::whereName($name)->first();
+		$user = User::where('users.id', $id)->first();
 		$follow = new Follow;
 		$follow->user_id        = Auth::user()->id;
 		$follow->ideas_follow  = $user->id;
 		$follow->save();
 
-		return redirect()->back()->with('success','Berhasil Follow '.$name);
+		return redirect()->back()->with('success','Berhasil Follow '.$id);
 	}
 	public function unfollow($id)
 	{
 		$follow = Follow::findOrFail($id);
 		$follow->delete();
+
+		return redirect()->back()->with('success','Berhasil UnFollow ');
+	}
+
+	public function post_to_team (Request $r)
+	{
+
+		$team = new Team;
+		// $team->user_id = Auth::user()->id;
+		$team->ideas_id = $r->id;
+		$team->save();
 
 		return redirect()->back()->with('success','Berhasil UnFollow ');
 	}

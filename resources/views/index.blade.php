@@ -89,7 +89,7 @@
   <div class="col-md-12" style="padding: 0; margin-bottom: 20px;">
     <div class="col-md-7" style="padding: 30px 0;">
       <h4 style="font-size: 36px; font-family: 'hind-bold';">Gabung dan Temukan Rekan Untuk Wujudkan Ide mu</h4><br>
-      <p style="vertical-align: middle;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+      <p style="line-height: 20px!important;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
       <br>
       <ul class="cover-button">
         <li><button class="btn btn-primary">Get Started</button></li>
@@ -113,7 +113,7 @@
     <hr/>
     <div class="row text-center" style="margin-top: 20px;">
 
-      <div class="col-md-4 col-sm-6 col-xs-12" style="margin-bottom: 15px!important;">
+      <div class="col-md-4" style="margin-bottom: 15px!important;">
         <div class="panel-default">
           <div class="panel-body">
             <img src="{{asset('img/demo/idea1.png')}}" width="100%" style="margin-bottom: 15px;"/>
@@ -136,7 +136,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-4 col-sm-6 col-xs-12" style="margin-bottom: 15px!important;">
+      <div class="col-md-4" style="margin-bottom: 15px!important;">
         <div class="panel-default">
           <div class="panel-body">
             <img src="{{asset('img/demo/idea1.png')}}" width="100%" style="margin-bottom: 15px;"/>
@@ -159,7 +159,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-4 col-sm-6 col-xs-12" style="margin-bottom: 15px!important;">
+      <div class="col-md-4" style="margin-bottom: 15px!important;">
         <div class="panel-default">
           <div class="panel-body">
             <img src="{{asset('img/demo/idea1.png')}}" width="100%" style="margin-bottom: 15px;"/>
@@ -183,7 +183,7 @@
         </div>
       </div>
 
-      <div class="col-md-4 col-sm-6 col-xs-12" style="margin-bottom: 15px!important;">
+      <div class="col-md-4" style="margin-bottom: 15px!important;">
         <div class="panel-default">
           <div class="panel-body">
             <img src="{{asset('img/demo/idea1.png')}}" width="100%" style="margin-bottom: 15px;"/>
@@ -206,7 +206,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-4 col-sm-6 col-xs-12" style="margin-bottom: 15px!important;">
+      <div class="col-md-4" style="margin-bottom: 15px!important;">
         <div class="panel-default">
           <div class="panel-body">
             <img src="{{asset('img/demo/idea1.png')}}" width="100%" style="margin-bottom: 15px;"/>
@@ -229,7 +229,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-4 col-sm-6 col-xs-12" style="margin-bottom: 15px!important;">
+      <div class="col-md-4" style="margin-bottom: 15px!important;">
         <div class="panel-default">
           <div class="panel-body">
             <img src="{{asset('img/demo/idea1.png')}}" width="100%" style="margin-bottom: 15px;"/>
@@ -337,7 +337,7 @@
         </div>
         <div col-md-5>
           <h1 style="padding: 5px 5px 20px; font-size: 32px; font-family: 'hind-bold';">Title of Events</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+          <p style="line-height: 20px!important;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
           <br>
           <button class="btn btn-primary" style="border-radius: 20px;
                 padding: 5px 25px; font-size: 14px; float: left; border: none; ">Read More</button>

@@ -7,6 +7,7 @@ use Auth;
 use App\User;
 use Hash;
 use Image;
+use App\Follow;
 
 class UserController extends Controller
 {
@@ -71,8 +72,9 @@ class UserController extends Controller
    public function profile($name){
 
      $user = User::whereName($name)->first();
+     $follow = Follow::where('user_id',Auth::user()->id)->where('ideas_follow',$user->id)->first();
 
-     return view ('user.profile', compact('user', 'post'));
+     return view ('user.profile', compact('user', 'post', 'follow'));
  }
 
 }

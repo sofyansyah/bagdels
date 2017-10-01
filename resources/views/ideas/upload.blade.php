@@ -33,7 +33,7 @@
 					</div>
 				</div>
 				<div class="col-md-6">
-					<div class="image" width="100%" style="height: 405px; background-color: #eee;"><img id="myImg" width="100%" /></div>
+					<div class="image" width="100%" style="background-color: #eee;"><img id="myImg" width="100%" /></div>
 					<div class="form-group">
 						<input type="file" name="image" class="form-control" placeholder="Image">
 					</div>

@@ -5,12 +5,14 @@ h1, h2, h3, h4{
 }
 body{
 	background-color: #fff!important;  
-	font-family: 'sanfrancisco'!important;
+	font-family: 'hind-regular'!important;
 
 }
-.navbar-default{
-	background-color: #9BC1BC;
-	border-bottom: none;
+p{
+	line-height: 18px!important;
+}
+.jumbotron p{
+	font-size: 16px!important;
 }
 .panel-default{
 	border: 1px solid #eee;
@@ -23,18 +25,6 @@ body{
 .panel-heading, .panel-body, .panel-footer{
 	background-color: #fff!important;
 }
-.panel-default > .regis{
-	background-color: #fff;
-	border-bottom: 1px solid #eee;
-	padding: 0 50px 10px;
-}
-
-.form-control{
-	background-color: #eee;
-	border:none;
-	box-shadow: none;
-}
-
 a:link {
 	text-decoration:none;
 }
@@ -56,48 +46,12 @@ ul{
 }
 li{
 	list-style-type: none;
-	font-size:14px;
-
 }
-
-.navbar-form {
-	width: 100%!important;
-	max-width: 250px!important;
-}
-.input-group{
-	width: 100%;
-	vertical-align: middle;
-	white-space: nowrap;
-	position: relative;
-}
-
-.btn-default{
-	border:none !important;
-	background-color: #fff!important;
-	color:#aaa;
-}
-.col-sm-12{
-	margin-bottom:20px;
-}
-.col-sm-6{
-	width: 50%!important;
-	}
 .panel{
 	border:none;
 	box-shadow: none !important;
 	-webkit-box-shadow: none !important;
 	border-radius:5px;
-}
-.pull-left{
-	padding:0px !important;
-
-}
-.navbar-nav i{
-	font-size: 15pt;
-}
-
-.navbar-header{
-	padding-left: 10px;
 }
 .navbar-nav li a{
 	padding: 8px 5px;
@@ -105,28 +59,7 @@ li{
 .panel-body{
 	padding: 0;
 }
-
-.footul{
-	color: #fafafa !important;
-	padding:0px;
-	margin:0px;
-}
-.footul > li{
+.tags li, .share li{
 	display: inline-block;
-	padding:5px;
 }
-.footul > li > a{
-	color:#29E7CD!important;
-}
-#footer{
-	margin-top:20px;
-	padding:0px;
-	bottom: 0px;
-	text-align: center;
-	height: 50px;
-	width: 100%;
 
-}
-.sosmed li{
-		display: inline-block;
-	}

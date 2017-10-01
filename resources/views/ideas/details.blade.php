@@ -1,14 +1,21 @@
 @extends('layouts.master')
 
 @section('content')
-<style type="text/css">
-	.tags li, .share li{
-		display: inline-block;
-	}
-</style>
+
 <div class="container" style="margin-bottom:20px; max-width: 750px;">
-	<div class="col-md-12" style="padding:0; padding-bottom: 20px;">
-		<h4 style="font-family: 'hind-bold';font-size: 20px; margin-bottom: 15px;">{{$idea->title}}</h4>
+	<div class="col-md-12" style="padding:0; padding-bottom: 10px;">
+		<h4 style="font-family: 'hind-bold';font-size: 20px; margin-bottom: 15px; float: left;">{{$idea->title}}</h4>
+		@if($idea->user_name ==Auth::user()->name)
+		<form action ="{{$idea->id.'/post-team'}}" method="POST">
+		{{csrf_field()}}
+		<input type="hidden" value="{{$idea->id}}" name="id">
+		<button class="btn btn-info" type="submit" style="border-radius: 20px; border: none; float: right;">Create a Team</button>
+		</form>
+		@else
+
+		@endif
+		</div>
+		<div class="col-md-12" style="padding: 0;">
 		<img src ="{{asset('img/'. $idea->image_normal)}}" width="100%" />
 	</div>
 	<div class="col-md-12" style="padding:0 0 20px;">
@@ -87,19 +94,7 @@
 
 
 	</div>
-	{{--<div class="col-md-4">
-	@if ($user->id == Auth::id())
-	<li><button type="button" class="btn btn-success" style="width: 100%; margin-bottom: 5px;">Inbox</button></li>
-	@else
-	<li>
-		@if(count($follow) > 0)
-		<a href="{{url('unfollow/'.$follow->id)}}" class="btn btn-success" style="margin-bottom: 5px; width: 100%;"> Followed </a>
-		@else
-		<a href="{{url('follow/'.$user->username)}}" class="btn btn-info" style="margin-bottom: 5px; width: 100%;"> Follow</a>
-		@endif
-		@endif
-	</li>
-</div>--}}
+	
 </div>
 
 
