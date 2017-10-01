@@ -92,10 +92,10 @@
         <a class="navbar-brand" href="{{'/'}}" style="color:#333; font-size: 25px; font-family:'hind-bold'!important;">Bagidelo</a>
         @endif
       </div>
-      <div class="collapse navbar-collapse" id="myNavbar">
+      <div class="collapse navbar-collapse" id="myNavbar" style="padding: 0;">
         @if (Auth::guest())
         @else
-        <ul class="nav navbar-nav navbar-left" style="padding: 7px;">
+        <ul class="nav navbar-nav navbar-left" style="padding: 7px 0;">
           <li class="menu1"><a href="{{url('discover')}}">Discover</a></li>
           <li class="menu1"><a href="{{url('#')}}">Challenge</a></li>
           <li class="menu1"><a href="{{url('/list-team')}}">Team Up</a></li>
@@ -104,7 +104,7 @@
         @endif
 
         @if (Auth::guest())
-        <ul class="nav navbar-nav navbar-right menu" style="padding: 7px; margin-top: 7px;">
+        <ul class="nav navbar-nav navbar-right menu" style="padding: 7px 5px; margin-top: 7px;">
           <li class=""><a href="{{url('/register')}}">Sign Up</a></li>
           <li>/</li>
           <li class=""><a href="{{url('/login')}}">Sign In</a></li>

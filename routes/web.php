@@ -11,13 +11,11 @@
 |
 */ 
 
-Route::get('/', function () {
-	return view('index');
-});
 Route::get('/team', function () {
 	return view('team.details');
 });
 Route::post('post-login', 'UserController@postlogin');
+Route::get('/', 'IdeasController@home');
 
 Auth::routes();
 

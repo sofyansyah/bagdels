@@ -112,19 +112,19 @@
     </div>
     <hr/>
     <div class="row text-center" style="margin-top: 20px;">
-
+@forelse($ideas as $idea)
       <div class="col-md-4" style="margin-bottom: 15px!important;">
         <div class="panel-default">
           <div class="panel-body">
-            <img src="{{asset('img/demo/idea1.png')}}" width="100%" style="margin-bottom: 15px;"/>
+            <img src="{{asset('img/'. $idea->image_small)}}" width="100%" style="margin-bottom: 15px;"/>
             <div class="body-text" style="padding: 0 20px 10px;">
-              <h4 style="font-family: 'hind-bold'; text-align: left; ">Lorem Ipsum</h4><br>
-              <p style="text-align: left; font-size: 15px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+              <a href="{{'idea/'. $idea->id}}"><h4 style="font-family: 'hind-bold'; text-align: left; ">{{ str_limit($idea->title, 25) }}</h4></a><br>
+              <p style="text-align: left; font-size: 15px;">{{ str_limit($idea->description, 130) }}</p>
               <hr/>
               <div class="col-md-7" style="padding: 0;">
                 <ul class="feed-body">
-                  <li><img src="{{'/img/demo/ava.png'}}" class="img-circle" width="48" style="float: left; margin-right: 10px;" /></li>
-                  <li style="padding: 5px 0 5px; text-align: left;"><h4>Raka</h4>
+                  <li><img src="{{'/img/avatar/'. $idea->user_avatar}}" class="img-circle" width="48" style="float: left; margin-right: 10px;" /></li>
+                  <li style="padding: 5px 0 5px; text-align: left;"><h4>{{$idea->user_name}}</h4>
                     <p style="font-size: 12px; color: #bbb;">5 minutes ago</p>
                   </li>
                 </ul>
@@ -136,122 +136,9 @@
           </div>
         </div>
       </div>
-      <div class="col-md-4" style="margin-bottom: 15px!important;">
-        <div class="panel-default">
-          <div class="panel-body">
-            <img src="{{asset('img/demo/idea1.png')}}" width="100%" style="margin-bottom: 15px;"/>
-            <div class="body-text" style="padding: 0 20px 10px;">
-              <h4 style="font-family: 'hind-bold'; text-align: left; ">Lorem Ipsum</h4><br>
-              <p style="text-align: left; font-size: 15px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
-              <hr/>
-              <div class="col-md-7" style="padding: 0;">
-                <ul class="feed-body">
-                  <li><img src="{{'/img/demo/ava.png'}}" class="img-circle" width="48" style="float: left; margin-right: 10px;" /></li>
-                  <li style="padding: 5px 0 5px; text-align: left;"><h4>Raka</h4>
-                    <p style="font-size: 12px; color: #bbb;">5 minutes ago</p>
-                  </li>
-                </ul>
-              </div>
-              <div class="col-md-5 text-right" style="padding:0;">
-                <button type="button" class="btn btn-primary" style="background-color: #ddd; border: none;  border-radius: 30px; padding:5px 10px 3px;"><i class="fa fa-heart" style="margin-right: 5px; font-size: 14px; color: #666;"></i><span class="" style="color:#666; font-family: 'hind-medium'; font-size: 12px;">271</span></button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4" style="margin-bottom: 15px!important;">
-        <div class="panel-default">
-          <div class="panel-body">
-            <img src="{{asset('img/demo/idea1.png')}}" width="100%" style="margin-bottom: 15px;"/>
-            <div class="body-text" style="padding: 0 20px 10px;">
-              <h4 style="font-family: 'hind-bold'; text-align: left; ">Lorem Ipsum</h4><br>
-              <p style="text-align: left; font-size: 15px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
-              <hr/>
-              <div class="col-md-7" style="padding: 0;">
-                <ul class="feed-body">
-                  <li><img src="{{'/img/demo/ava.png'}}" class="img-circle" width="48" style="float: left; margin-right: 10px;" /></li>
-                  <li style="padding: 5px 0 5px; text-align: left;"><h4>Raka</h4>
-                    <p style="font-size: 12px; color: #bbb;">5 minutes ago</p>
-                  </li>
-                </ul>
-              </div>
-              <div class="col-md-5 text-right" style="padding:0;">
-                <button type="button" class="btn btn-primary" style="background-color: #ddd; border: none;  border-radius: 30px; padding:5px 10px 3px;"><i class="fa fa-heart" style="margin-right: 5px; font-size: 14px; color: #666;"></i><span class="" style="color:#666; font-family: 'hind-medium'; font-size: 12px;">271</span></button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4" style="margin-bottom: 15px!important;">
-        <div class="panel-default">
-          <div class="panel-body">
-            <img src="{{asset('img/demo/idea1.png')}}" width="100%" style="margin-bottom: 15px;"/>
-            <div class="body-text" style="padding: 0 20px 10px;">
-              <h4 style="font-family: 'hind-bold'; text-align: left; ">Lorem Ipsum</h4><br>
-              <p style="text-align: left; font-size: 15px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
-              <hr/>
-              <div class="col-md-7" style="padding: 0;">
-                <ul class="feed-body">
-                  <li><img src="{{'/img/demo/ava.png'}}" class="img-circle" width="48" style="float: left; margin-right: 10px;" /></li>
-                  <li style="padding: 5px 0 5px; text-align: left;"><h4>Raka</h4>
-                    <p style="font-size: 12px; color: #bbb;">5 minutes ago</p>
-                  </li>
-                </ul>
-              </div>
-              <div class="col-md-5 text-right" style="padding:0;">
-                <button type="button" class="btn btn-primary" style="background-color: #ddd; border: none;  border-radius: 30px; padding:5px 10px 3px;"><i class="fa fa-heart" style="margin-right: 5px; font-size: 14px; color: #666;"></i><span class="" style="color:#666; font-family: 'hind-medium'; font-size: 12px;">271</span></button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4" style="margin-bottom: 15px!important;">
-        <div class="panel-default">
-          <div class="panel-body">
-            <img src="{{asset('img/demo/idea1.png')}}" width="100%" style="margin-bottom: 15px;"/>
-            <div class="body-text" style="padding: 0 20px 10px;">
-              <h4 style="font-family: 'hind-bold'; text-align: left; ">Lorem Ipsum</h4><br>
-              <p style="text-align: left; font-size: 15px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
-              <hr/>
-              <div class="col-md-7" style="padding: 0;">
-                <ul class="feed-body">
-                  <li><img src="{{'/img/demo/ava.png'}}" class="img-circle" width="48" style="float: left; margin-right: 10px;" /></li>
-                  <li style="padding: 5px 0 5px; text-align: left;"><h4>Raka</h4>
-                    <p style="font-size: 12px; color: #bbb;">5 minutes ago</p>
-                  </li>
-                </ul>
-              </div>
-              <div class="col-md-5 text-right" style="padding:0;">
-                <button type="button" class="btn btn-primary" style="background-color: #ddd; border: none;  border-radius: 30px; padding:5px 10px 3px;"><i class="fa fa-heart" style="margin-right: 5px; font-size: 14px; color: #666;"></i><span class="" style="color:#666; font-family: 'hind-medium'; font-size: 12px;">271</span></button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4" style="margin-bottom: 15px!important;">
-        <div class="panel-default">
-          <div class="panel-body">
-            <img src="{{asset('img/demo/idea1.png')}}" width="100%" style="margin-bottom: 15px;"/>
-            <div class="body-text" style="padding: 0 20px 10px;">
-              <h4 style="font-family: 'hind-bold'; text-align: left; ">Lorem Ipsum</h4><br>
-              <p style="text-align: left; font-size: 15px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
-              <hr/>
-              <div class="col-md-7" style="padding: 0;">
-                <ul class="feed-body">
-                  <li><img src="{{'/img/demo/ava.png'}}" class="img-circle" width="48" style="float: left; margin-right: 10px;" /></li>
-                  <li style="padding: 5px 0 5px; text-align: left;"><h4>Raka</h4>
-                    <p style="font-size: 12px; color: #bbb;">5 minutes ago</p>
-                  </li>
-                </ul>
-              </div>
-              <div class="col-md-5 text-right" style="padding:0;">
-                <button type="button" class="btn btn-primary" style="background-color: #ddd; border: none;  border-radius: 30px; padding:5px 10px 3px;"><i class="fa fa-heart" style="margin-right: 5px; font-size: 14px; color: #666;"></i><span class="" style="color:#666; font-family: 'hind-medium'; font-size: 12px;">271</span></button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      @empty
+      @endforelse
+     
 
     </div>
 
@@ -266,13 +153,14 @@
       </div>
       <hr/>
       <div class="row text-center" style="margin-top: 20px;">
+      @forelse($teams as $team)
         <div class="col-md-4">
           <div class="panel-default">
             <div class="panel-body">
-              <img src="{{asset('img/demo/team1.png')}}" width="100%" style="margin-bottom: 15px;"/>
+              <img src="{{asset('img/'. $team->image_small)}}" width="100%" style="margin-bottom: 15px;"/>
               <div class="body-text" style="padding: 0 20px 10px;">
-                <h4 style="font-family: 'hind-bold'; text-align: left; ">Lorem Ipsum</h4><br>
-                <p style="text-align: left; font-size: 15px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <a href="{{'team/'. $team->id}}"><h4 style="font-family: 'hind-bold'; text-align: left; ">{{ str_limit($team->title, 25) }}</h4></a><br>
+                <p style="text-align: left; font-size: 15px;">{{ str_limit($team->description, 130) }}</p>
                 <ul class="count" style="padding-left: 0; margin-top: 10px;">
                   <li>Story <span>12</span></li>
                   <li>Watches <span>110</span></li>
@@ -285,45 +173,8 @@
             </div>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="panel-default">
-            <div class="panel-body">
-              <img src="{{asset('img/demo/team1.png')}}" width="100%" style="margin-bottom: 15px;"/>
-              <div class="body-text" style="padding: 0 20px 10px;">
-                <h4 style="font-family: 'hind-bold'; text-align: left; ">Lorem Ipsum</h4><br>
-                <p style="text-align: left; font-size: 15px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <ul class="count" style="padding-left: 0; margin-top: 10px;">
-                  <li>Story <span>12</span></li>
-                  <li>Watches <span>110</span></li>
-                  <li>Participants <span>20</span></li>
-                </ul>
-                <br>
-                <button class="btn btn-primary" style="border-radius: 20px;
-                padding: 5px 25px; font-size: 14px; float: left; border: none; ">Watch</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="panel-default">
-            <div class="panel-body">
-              <img src="{{asset('img/demo/team1.png')}}" width="100%" style="margin-bottom: 15px;"/>
-              <div class="body-text" style="padding: 0 20px 10px;">
-                <h4 style="font-family: 'hind-bold'; text-align: left; ">Lorem Ipsum</h4><br>
-                <p style="text-align: left; font-size: 15px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <ul class="count" style="padding-left: 0; margin-top: 10px;">
-                  <li>Story <span>12</span></li>
-                  <li>Watches <span>110</span></li>
-                  <li>Participants <span>20</span></li>
-                </ul>
-                <br>
-                <button class="btn btn-primary" style="border-radius: 20px;
-                padding: 5px 25px; font-size: 14px; float: left; border: none; ">Watch</button>
-              </div>
-            </div>
-          </div>
-        </div>
+        @empty
+        @endforelse
 
       </div>
     </div>

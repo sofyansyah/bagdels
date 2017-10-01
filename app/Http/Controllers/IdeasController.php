@@ -107,5 +107,19 @@ class IdeasController extends Controller
 		return redirect()->back()->with('success','Berhasil UnFollow ');
 	}
 
+	    public function home(){
+
+        $ideas = Ideas::join('users', 'ideas.user_id', '=', 'users.id')
+        ->select('ideas.*','users.name as user_name', 'users.photo as user_avatar')
+        ->orderBy('id', 'desc')
+        ->get();
+
+         $teams = Team::join('ideas', 'teams.ideas_id', '=', 'ideas.id')
+        ->get();
+
+        return view ('index', compact ('ideas', 'teams'));
+    }
+
+
 }
 

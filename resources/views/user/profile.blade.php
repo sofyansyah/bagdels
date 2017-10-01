@@ -52,13 +52,13 @@
   }
   .jumbotron{
     background-image: 
-    linear-gradient(to bottom, rgba(255,255,255,0.8) 0%,rgba(255,255,255,0.9) 100%), url('/img/demo/idea3.png'); background-repeat: no-repeat;min-height: 300px;
+    linear-gradient(to bottom, rgba(255,255,255,0.8) 0%,rgba(255,255,255,0.9) 100%), url('/img/demo/idea3.png'); background-repeat: no-repeat;min-height: 350px;
   }
 </style>
 @section('content')
 
 
-<div class="container" style="margin-top: 8%; max-width: 900px;">
+<div class="container" style="max-width: 900px;">
   <div class="jumbotron">
    <div class="col-md-12 text-center">
     @if($user->photo == null)
@@ -73,8 +73,8 @@
     <p style="padding: 1px 10%; color: #aaa; margin-bottom: 2px;">"{{$user->bio}}"</p>
     @if ($user->name == Auth::user()->name)
     <button type="button" class="btn btn-success">Inbox</button>
+    <a href="{{'/'. $user->name. '/profile-edit'}}" class="btn btn-info">Edit</a>
     @else
-    <li>
       @if(count($follow) > 0)
       <a href="{{url('unfollow/'.$follow->id)}}" class="btn btn-success"> Followed </a>
       @else
@@ -92,161 +92,38 @@
   </div>
 
   <div class="row">
-    <div class="col-md-12">
-
-      <div class="col-md-4" style="padding: 0; margin: 0px;">
-       <a href="{{'/detail'}}"> 
-        <div class="containers">
-          <img src="{{'/img/avatar/raka_SpID.jpg'}}" class="image"/>
-          <div class="overlay">
-            <div class="text">Hello World</div>
+    <div class="col-md-9">
+    <h4 style="font-size: 20px; font-family: 'hind-medium' ">Idea</h4>
+    <hr>
+@forelse($ideas as $idea)
+      <div class="col-md-6 col-sm-6" style="margin-bottom: 15px;">
+       <a href="#"> 
+         <div class="containers"> 
+           <img src="{{'/img/' .$idea->image_small}}" class="image" width="100%" />
+           <div class="overlay">
+           <a href="{{'/idea/'. $idea->id}}"><div class="text"> {{$idea->title}}</div></a>
           </div>
         </div>
       </a>
     </div>
-    <div class="col-md-2 col-sm-6" style="margin-bottom: 15px;">
-     <a href="#"> 
-       <div class="containers"> 
-         <img src="https://i.pinimg.com/736x/2e/68/b4/2e68b4e53a0ce8ebded4d934ad38c1fb--black-white-photography-minimal-photography.jpg" class="image"/>
-         <div class="overlay">
-          <div class="text">Hello World</div>
-        </div>
-      </div>
-    </a>
-  </div>
+    @empty
+    @endforelse
+</div>
+    <div class="col-md-3">
+     <h4 style="font-size: 20px; font-family: 'hind-medium' ">Team</h4>
+    <hr>
+    @forelse($teams as $team)
+    <div class="col-md-12">
+     <img src="{{'/img/'. $team->image_small}}" class="image" width="100%" />
+    </div>
+    @empty
+    @endforelse
+    </div>
 
-  <div class="col-md-2" style="margin-bottom: 15px;">
-   <a href="#">
-     <div class="containers">
-       <img src="https://cdn0-a.production.vidio.static6.com/uploads/channel/image/23976/cartoon-mr-bean-b4bf49.jpg" class="image"/>
-       <div class="overlay">
-        <div class="text">Hello World</div>
-      </div>
-    </div>
-  </a>
-</div>
-<div class="col-md-2" style="margin-bottom: 15px;">
- <a href="#">
-   <div class="containers">
-     <img src="https://lh4.ggpht.com/7_wzEOZXIsCf1Wb1_C_IwRKMYKwIc43tAYwFwmmD5YZA7YkQzOBINPvwixGoIKWo3pQ=w300" class="image"/>
-     <div class="overlay">
-      <div class="text">Hello World</div>
-    </div>
-  </div>
-</a>
-</div>
-<div class="col-md-2" style="margin-bottom: 15px;">
-  <a href="#">
-    <div class="containers"><img src="http://thepowerpuffgirls.cartoonnetworkhq.com/images/social/Group-OG.jpg" class="image"/>
-      <div class="overlay">
-        <div class="text">Hello World</div>
-      </div>
-    </div>
-  </a>
-</div>
 
-<div class="col-md-2" style="margin-bottom: 15px;">
-  <a href="#">
-    <div class="containers">
-      <img src="https://www.graphicsfactory.com/clip-art/image_files/image/7/764587-Football006_ssc.gif" class="image"/>
-      <div class="overlay">
-        <div class="text">Hello World</div>
-      </div>
-    </div>
-  </a>
-</div>
-<div class="col-md-2" style="margin-bottom: 15px;">
-  <a href="#">
-    <div class="containers">
-      <img src="https://i.pinimg.com/736x/51/7c/ac/517cacfdf952739fc1237603bea589f3--king-of-the-hill-cartoon-tv.jpg" class="image"/>
-      <div class="overlay">
-        <div class="text">Hello World</div>
-      </div>
-    </div>
-  </a>
-</div>
-<div class="col-md-2" style="margin-bottom: 15px;">
-  <a href="#">
-    <div class="containers">
-      <img src="https://i.pinimg.com/736x/57/19/4c/57194c92d901bf327f9e9bd0bf7ff9d4--beach-photography-tips-white-photography.jpg" class="image"/>
-      <div class="overlay">
-        <div class="text">Hello World</div>
-      </div>
-    </div>
-  </a>
-</div>
-<div class="col-md-2" style="margin-bottom: 15px;">
-  <a href="#">
-    <div class="containers">
-      <img src="https://i.vimeocdn.com/portrait/14036707_300x300" width="100%"/>
-      <div class="overlay">
-        <div class="text">Hello World</div>
-      </div>
-    </div>
-  </a>
-</div>
-<div class="col-md-2" style="margin-bottom: 15px;">
-  <a href="#">
-    <div class="containers">
-      <img src="https://www.graphicsfactory.com/clip-art/image_files/image/7/764587-Football006_ssc.gif" class="image"/>
-      <div class="overlay">
-        <div class="text">Hello World</div>
-      </div>
-    </div>
-  </a>
-</div>
-<div class="col-md-2" style="margin-bottom: 15px;">
-  <a href="#">
-    <div class="containers">
-      <img src="https://i.vimeocdn.com/portrait/14036707_300x300" width="100%"/>
-      <div class="overlay">
-        <div class="text">Hello World</div>
-      </div>
-    </div>
-  </a>
-</div>
-<div class="col-md-2" style="margin-bottom: 15px;">
- <a href="#"> 
-   <div class="containers"> 
-     <img src="https://i.pinimg.com/736x/2e/68/b4/2e68b4e53a0ce8ebded4d934ad38c1fb--black-white-photography-minimal-photography.jpg" class="image"/>
-     <div class="overlay">
-      <div class="text">Hello World</div>
-    </div>
-  </div>
-</a>
-</div>
 
-<div class="col-md-2" style="margin-bottom: 15px;">
- <a href="#">
-   <div class="containers">
-     <img src="https://cdn0-a.production.vidio.static6.com/uploads/channel/image/23976/cartoon-mr-bean-b4bf49.jpg" class="image"/>
-     <div class="overlay">
-      <div class="text">Hello World</div>
-    </div>
-  </div>
-</a>
+  
 </div>
-<div class="col-md-2" style="margin-bottom: 15px;">
-  <a href="#">
-    <div class="containers"><img src="http://thepowerpuffgirls.cartoonnetworkhq.com/images/social/Group-OG.jpg" class="image"/>
-      <div class="overlay">
-        <div class="text">Hello World</div>
-      </div>
-    </div>
-  </a>
-</div>
-
-<div class="col-md-2" style="margin-bottom: 15px;">
-  <a href="#">
-    <div class="containers">
-      <img src="https://www.graphicsfactory.com/clip-art/image_files/image/7/764587-Football006_ssc.gif" class="image"/>
-      <div class="overlay">
-        <div class="text">Hello World</div>
-      </div>
-    </div>
-  </a>
-</div>
-
 </div>
 
 

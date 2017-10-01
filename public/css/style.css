@@ -39,6 +39,7 @@ a:link {
 }
 .container-fluid{
 	max-width: 1024px;
+	padding: 0!important;
 }
 
 ul{
