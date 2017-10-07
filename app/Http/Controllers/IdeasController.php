@@ -106,7 +106,7 @@ class IdeasController extends Controller
 		$team->ideas_id = $r->id;
 		$team->save();
 
-		return redirect()->back()->with('success','Berhasil UnFollow ');
+		return redirect('/list-team')->with('success','Berhasil buat ide');
 	}
 
 	    public function home(){
