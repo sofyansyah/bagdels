@@ -26,7 +26,10 @@ class TeamsController extends Controller
     	$team = Team::where('ideas.id', $id)
         ->join('ideas', 'teams.ideas_id', '=', 'ideas.id')
         ->first();
-        return view ('team.details', compact('team'));
+        $user = Ideas::where('ideas.id', $id)
+        ->join('users', 'ideas.user_id', '=', 'users.id')
+        ->first();
+        return view ('team.details', compact('team', 'user'));
     }
 
     public function edit_team($id)
